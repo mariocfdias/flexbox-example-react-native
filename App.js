@@ -7,49 +7,49 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from './src/feature/pokemon/pokemonSlice';
 import { useGetPokemonByNameQuery } from './src/services/pokemon';
 
+const styles = StyleSheet.create({
+  screenContainer: {
+    backgroundColor: "#453e3e",
+    width: "100%",
+    height: "100%",
+    flexDirection: "row",
+    rowGap: 5, 
+    columnGap: 5
+  },
+  columnContainer: {
+    flex: 1,
+    flexDirection: "column",
+    rowGap: 5, 
+    columnGap: 5
+  },
+  rotatedText: {
+    transform: [{ rotate: '270deg'}],
+    fontWeight: 800,
+    fontSize: 24,
+    letterSpacing: 10,
+  }
 
-const HelloWorld = () => {
-  return(
-    <View style={styles.container}>
-
-    <View style={{flexDirection: "row"}}>
-
-      <View style={{ padding:20, backgroundColor: "#000"}}>
-        <Text style={{ color: "white"}}>Primeira Coluna</Text>
-      </View>
-
-      <View style={{ padding:20, backgroundColor: "#000"}}>
-        <Text style={{ color: "white"}}>Segunda Coluna</Text>
-      </View>
-
-    </View>
-    </View>
-  )
-}
+});
 
 const FlexBoxExample = () => {
   return (
-    <View style={{backgroundColor: "black", width: "100%", height: "100%", flexDirection: "row", rowGap: 5, columnGap: 5}}>
+    <View style={styles.screenContainer}>
 
-<View style={{flex: 1, flexDirection: "column", rowGap: 5, columnGap: 5}}>
-      <View style={{ flex: 1, backgroundColor: "purple"}}></View>
-      <View style={{ flex: 1, backgroundColor: "lightblue"}}></View>
-      <View style={{ flex: 2, backgroundColor: "purple"}}></View>
+<View style={styles.columnContainer}>
+      <View style={{ flex: 1, backgroundColor: "#8977e0"}}></View>
+      <View style={{ flex: 1, backgroundColor: "#01bcfb"}}></View>
+      <View style={{ flex: 2, backgroundColor: "#007ff9"}}></View>
     </View>
 
-    <View style={{flex: 1, flexDirection: "column", rowGap: 5, columnGap: 5}}>
-      <View style={{ flex: 3, backgroundColor: "lightgray"}}></View>
-      <View style={{ flex: 8, backgroundColor: "lightblue", alignItems: "center", justifyContent: "center"}}>
+    <View style={styles.columnContainer}>
+      <View style={{ flex: 3, backgroundColor: "#78ccfa"}}></View>
+      <View style={{ flex: 8, backgroundColor: "#01bcfb", alignItems: "center", justifyContent: "center"}}>
         <Text 
-        style={{
-              transform: [{ rotate: '90deg'}],
-              fontWeight: 800,
-              fontSize: 36,
-              letterSpacing: 4     }}>
+        style={styles.rotatedText}>
           FLEXBOX
         </Text>
       </View>
-      <View style={{ flex: 1, backgroundColor: "purple"}}></View>
+      <View style={{ flex: 1, backgroundColor: "#573ec1"}}></View>
     </View>
 
     </View>
@@ -87,14 +87,7 @@ const PokemonCard = (pokemon) => {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
 
 const withProvider = (props) => {
   return <Provider store={store}>
